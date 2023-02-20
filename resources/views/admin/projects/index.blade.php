@@ -22,7 +22,7 @@
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->used_language }}</td>
                     <td>
-                        <a href="" class="btn btn-sm btn-primary">
+                        <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-primary">
                             Show
                         </a>
                         <a href="" class="btn btn-sm btn-success">
