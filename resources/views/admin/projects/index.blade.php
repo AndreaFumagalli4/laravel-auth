@@ -9,7 +9,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">used_language</th>
                     <th scope="col">
-                        <a href="" class="btn btn-info">
+                        <a href="{{ route('admin.projects.create') }}" class="btn btn-info">
                             Create a new project
                         </a>
                     </th>
