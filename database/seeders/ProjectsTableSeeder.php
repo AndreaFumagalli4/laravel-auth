@@ -20,7 +20,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject = new Project();
             $newProject->title = $faker->sentence(5);
             $newProject->thumb = $faker->image(null, 360, 360);
-            $newProject->used_language = $faker->randomElement(['HTML', 'CSS', 'JS', 'VueJS', 'PHP', 'Laravel']);
+            $newProject->used_language = $faker->word();
             $newProject->link = $faker->url();
             $newProject->save();
         }
