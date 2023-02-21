@@ -1,7 +1,8 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
+        @foreach ($projects as $project)
         <div class="card text-center mt-3">
             <div class="card-header">
                 {{ $project->title }}
@@ -17,5 +18,6 @@
                 </a>
             </div>
         </div>
+        @endforeach
     </div>
 @endsection
