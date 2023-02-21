@@ -19,7 +19,7 @@ class ProjectsTableSeeder extends Seeder
         for ($i=0; $i < 20; $i++) { 
             $newProject = new Project();
             $newProject->title = $faker->sentence(5);
-            $newProject->thumb = $faker->image(null, 360, 360);
+            $newProject->thumb = $faker->imageUrl(360, 360, 'computers', true);
             $newProject->used_language = $faker->word();
             $newProject->link = $faker->url();
             $newProject->save();
