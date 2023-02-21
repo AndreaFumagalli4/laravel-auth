@@ -65,7 +65,7 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Project $project
      * @return \Illuminate\Http\Response
      */
     public function edit(Project $project)
@@ -83,7 +83,17 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|min:2|max:80|unique:projects',
+            'thumb' => 'required|active_url',
+            'used_language' => 'required|max:255',
+            'link' => 'required|active_url'
+        ]);
+
+        $project = Project::findOrFail($id);
+        $project->update($data);
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
