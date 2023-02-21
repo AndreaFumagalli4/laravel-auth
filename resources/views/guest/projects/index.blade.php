@@ -11,9 +11,10 @@
                 <h2 class="card-title fw-bold">
                     {{ $project->title }}
                 </h2>
-                <img src="{{ $project->thumb }}" alt="{{ $project->title }}" class="img-fluid mt-3">
-                <br>
-                <a href="{{ $project->link }}" class="btn btn-sm btn-info mt-3">
+                <div class="my-4">
+                    <img src="{{ $project->thumb }}" alt="{{ $project->title }}" class="img-fluid">
+                </div>
+                <a href="{{ $project->link }}" class="btn btn-sm btn-info">
                     Go to the project repository
                 </a>
             </div>
