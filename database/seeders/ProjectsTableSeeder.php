@@ -16,7 +16,7 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 20; $i++) { 
+        for ($i=0; $i < 50; $i++) { 
             $newProject = new Project();
             $newProject->title = $faker->sentence(5);
             $newProject->thumb = $faker->imageUrl(360, 360, 'computers', true);
