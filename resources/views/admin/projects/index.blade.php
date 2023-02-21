@@ -28,10 +28,14 @@
                         <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-sm btn-success">
                             Edit
                         </a>
-                        <a href="" class="btn btn-sm btn-danger">
-                            Delete
-                            {{-- TODO: fare FROM per il btn danger --}}
-                        </a>
+                        <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline-block">
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Delete
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
