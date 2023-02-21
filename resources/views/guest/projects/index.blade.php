@@ -11,6 +11,9 @@
                 <h2 class="card-title fw-bold">
                     {{ $project->title }}
                 </h2>
+                <p class="mt-4">
+                    Language used: {{ $project->used_language }}
+                </p>
                 <div class="my-4">
                     <img src="{{ $project->thumb }}" alt="{{ $project->title }}" class="img-fluid">
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -84,7 +85,7 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'title' => 'required|min:2|max:80|unique:projects',
+            'title' => ['required', 'min:2', 'max:80', Rule::unique('projects')->ignore($id)],
             'thumb' => 'required|active_url',
             'used_language' => 'required|max:255',
             'link' => 'required|active_url'
