@@ -46,7 +46,7 @@ deleteFormElements.forEach((formElement)=> {
                     showLoaderOnConfirm: true,
                     allowOutsideClick: () => !Swal.isLoading(),
                     preConfirm: (txt) => {
-                    return (txt.toUpperCase() == "CONFIRM");
+                        return (txt.toUpperCase() == "CONFIRM");
                     },
 
                 }).then((result) => {

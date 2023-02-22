@@ -6,21 +6,30 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-11 mt-3">
+            <div class="col-12 mt-3">
                 @if (session('message'))
                     <div class="alert {{session('alert-type')}}">
                         {{session('message')}}
                     </div>
                 @endif
             </div>
-            <div class="col-1 mt-3 text-end">
-                <a href="{{ route('admin.projects.tashed') }}" class="btn btn-warning">
-                    <i class="fa-regular fa-trash-can"></i>
-                </a>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-12">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h2>
+                                Projects:
+                            </h2>
+                        </div>
+                        <div>
+                            @if($trashed)
+                            <a href="{{ route('admin.projects.tashed') }}" class="btn btn-sm btn-warning">
+                                <b>{{$trashed}}</b> item/s in recycled bin 
+                            </a>
+                            @endif
+                        </div>
+                    </div>
+                </div>
                 <table class="table table-hover table-borderless mt-3">
                     <thead>
                         <tr>

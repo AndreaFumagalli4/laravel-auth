@@ -2,6 +2,22 @@
 
 @section('content')
     <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h2>
+                                Projects:
+                            </h2>
+                        </div>
+                        <div>
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <table class="table table-hover table-borderless mt-3">
             <thead>
                 <tr>
