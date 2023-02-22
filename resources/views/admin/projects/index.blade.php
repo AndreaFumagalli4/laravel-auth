@@ -56,7 +56,7 @@
                                 <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-success">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </a>
-                                <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline-block form-deleter" data-element-name="{{ $project->title }}">
+                                <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline-block delete" data-element-name="{{ $project->title }}">
                                     @csrf
                                     @method('DELETE')
         

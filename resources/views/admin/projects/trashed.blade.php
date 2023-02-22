@@ -15,7 +15,7 @@
                             </h2>
                         </div>
                         @if (count($projects))
-                        <form class="d-inline delete double-confirm" action="{{route('admin.projects.restore-all')}}" method="POST" >
+                        <form class="d-inline delete double-confirm" action="{{route('admin.projects.restore-all')}}" method="POST">
                             @csrf
                             <button type="submit" class="btn btn-primary" title="restore all"><i class="fa-solid fa-recycle"></i>&nbsp;Restore all</button>
                         </form>            
@@ -41,7 +41,7 @@
                         <a href="{{ route('admin.projects.restore', $project->id) }}" class="btn btn-sm btn-success">
                             Restore
                         </a>
-                        <form action="{{ route('admin.projects.force-delete', $project->id) }}" method="POST" class="d-inline-block form-deleter" data-element-name="{{ $project->title }}">
+                        <form action="{{ route('admin.projects.force-delete', $project->id) }}" method="POST" class="d-inline-block delete form-deleter double-confirm" data-element-name="{{ $project->title }}">
                             @csrf
                             @method('DELETE')
 

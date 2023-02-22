@@ -13,14 +13,14 @@ if (popup) {
     });
 }
 
-const deleteFormElements = document.querySelectorAll('form.form-deleter');
+const deleteBtns = document.querySelectorAll('form.delete');
 
-deleteFormElements.forEach((formElement)=> {
-    formElement.addEventListener('submit', function(event) {
+deleteBtns.forEach((formDelete) => {
+    formDelete.addEventListener('submit', function (event) {
         event.preventDefault();
         var doubleconfirm = event.target.classList.contains('double-confirm');
         Swal.fire({
-            title: 'Are you sure to delete this project?',
+            title: 'Are you sure?',
             text: "Please confirm your request!",
             icon: 'warning',
             showCancelButton: true,
@@ -28,10 +28,10 @@ deleteFormElements.forEach((formElement)=> {
             cancelButtonColor: '#d33',
             cancelButtonText: 'Cancel',
             confirmButtonText: 'Yes, confirm!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.value) {
 
-                // if double confirm
+            // if double confirm
                 if (doubleconfirm) {
 
                 Swal.fire({
@@ -57,5 +57,5 @@ deleteFormElements.forEach((formElement)=> {
                 }
             }
         });
-    })
-})
+    });
+});
