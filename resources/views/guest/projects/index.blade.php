@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         @foreach ($projects as $project)
-        <div class="card text-center mt-3">
+        <div class="card text-center mt-5">
             <div class="card-header">
-                {{ $project->title }}
+                {{ $project->slug }}
             </div>
             <div class="card-body">
                 <h2 class="card-title fw-bold">
@@ -20,6 +20,9 @@
                 <a href="{{ $project->link }}" class="btn btn-sm btn-info">
                     Go to the project repository
                 </a>
+            </div>
+            <div class="card-footer">
+                {{$project->project_date}}
             </div>
         </div>
         @endforeach

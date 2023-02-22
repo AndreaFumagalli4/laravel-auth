@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card text-center mt-3">
             <div class="card-header">
-                {{ $project->title }}
+                {{ $project->slug }}
             </div>
             <div class="card-body">
                 <h2 class="card-title fw-bold">
@@ -30,6 +30,9 @@
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </form>
+            </div>
+            <div class="card-footer">
+                {{$project->project_date}}
             </div>
         </div>
     </div>
