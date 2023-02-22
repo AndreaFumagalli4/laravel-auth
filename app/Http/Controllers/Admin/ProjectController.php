@@ -134,6 +134,17 @@ class ProjectController extends Controller
     }
 
     /**
+     * Restore all project data
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restoreAll()
+    {
+        Project::onlyTrashed()->restore();
+        return redirect()->route('admin.projects.index')->with('message', "All project restored successfully")->with('alert-type', 'alert-success');
+    }
+
+    /**
      * Force delete project data
      *
      * @param Project $project
