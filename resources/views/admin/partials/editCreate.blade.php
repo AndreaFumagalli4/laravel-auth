@@ -8,13 +8,7 @@
 
             @if ($errors->any())
                 <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>
-                                {{ $error }}
-                            </li>
-                        @endforeach
-                    </ul>
+                    Check Errors
                 </div>
             @endif
 
@@ -22,25 +16,45 @@
                 <label class="form-label" for="title">
                     Title
                 </label>
-                <input type="text" class="form-control" name="title" value="{{ old('title') ?? $project->title }}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') ?? $project->title }}">
+                @error('title')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label class="form-label" for="thumb">
                     Thumb
                 </label>
-                <textarea class="form-control" name="thumb">{{ old('thumb') ?? $project->thumb }}</textarea>
+                <textarea class="form-control @error('thumb') is-invalid @enderror" name="thumb">{{ old('thumb') ?? $project->thumb }}</textarea>
+                @error('thumb')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label class="form-label" for="used_language">
                     Used Language
                 </label>
-                <input type="text" class="form-control" name="used_language" value="{{ old('used_language') ?? $project->used_language }}">
+                <input type="text" class="form-control @error('used_language') is-invalid @enderror" name="used_language" value="{{ old('used_language') ?? $project->used_language }}">
+                @error('used_language')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label class="form-label" for="link">
                     Link
                 </label>
-                <input type="text" class="form-control" name="link" value="{{ old('link') ?? $project->link }}">
+                <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link') ?? $project->link }}">
+                @error('link')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
             </div>
             
             <button type="submit" class="btn btn-primary">
