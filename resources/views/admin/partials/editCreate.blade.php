@@ -61,6 +61,17 @@
                         </div>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="project_date">
+                            Date
+                        </label>
+                        <input type="date" class="form-control @error('project_date') is-invalid @enderror" name="project_date" value="{{ old('project_date') ?? $project->project_date }}">
+                        @error('project_date')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+                    </div>
                     
                     <button type="submit" class="btn btn-primary">
                         Submit
