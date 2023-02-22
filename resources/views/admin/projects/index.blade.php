@@ -1,9 +1,19 @@
 @extends('layouts.admin')
 
 @section('content')
+
+    @include('admin.partials.popup')
+
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-3 text-end">
+            <div class="col-11 mt-3">
+                @if (session('message'))
+                    <div class="alert {{session('alert-type')}}">
+                        {{session('message')}}
+                    </div>
+                @endif
+            </div>
+            <div class="col-1 mt-3 text-end">
                 <a href="{{ route('admin.projects.tashed') }}" class="btn btn-warning">
                     <i class="fa-regular fa-trash-can"></i>
                 </a>
@@ -19,7 +29,7 @@
                             <th scope="col">used_language</th>
                             <th scope="col">
                                 <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-info">
-                                    Create a new project
+                                    Create new project
                                 </a>
                             </th>
                         </tr>

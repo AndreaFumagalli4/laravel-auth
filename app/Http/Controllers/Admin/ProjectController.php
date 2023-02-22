@@ -106,7 +106,7 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.projects.index')->with('message', 'Moved to trash')->with('alert-type', 'alert-danger');
     }
 
     /**
@@ -129,7 +129,7 @@ class ProjectController extends Controller
     public function restore($id)
     {
         Project::where('id', $id)->withTrashed()->restore();
-        return redirect()->route('admin.projects.index')->with('message', "Restored successfully")->with('alert-type', 'success');
+        return redirect()->route('admin.projects.index')->with('message', "Restored successfully")->with('alert-type', 'alert-success');
     }
 
     /**
@@ -141,6 +141,6 @@ class ProjectController extends Controller
     public function forceDelete($id)
     {
         Project::where('id', $id)->withTrashed()->forceDelete();
-        return redirect()->route('admin.projects.index')->with('message', "Delete definetely")->with('alert-type', 'success');
+        return redirect()->route('admin.projects.index')->with('message', "Delete definetely")->with('alert-type', 'alert-danger');
     }
 }

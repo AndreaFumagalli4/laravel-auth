@@ -7,11 +7,7 @@
                 <tr>
                     <th scope="col">#id</th>
                     <th scope="col">Title</th>
-                    <th scope="col">
-                        <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-warning">
-                            Restore All
-                        </a>
-                    </th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>

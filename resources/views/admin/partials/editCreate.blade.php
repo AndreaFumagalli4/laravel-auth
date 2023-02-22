@@ -7,9 +7,7 @@
             @method($method)
 
             @if ($errors->any())
-                <div class="alert alert-danger">
-                    Check Errors
-                </div>
+                <div id="popup_message" class="d-none" data-type="warning" data-message="Check errors"></div>
             @endif
 
             <div class="card">
