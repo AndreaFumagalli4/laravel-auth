@@ -22,17 +22,17 @@
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->used_language }}</td>
                     <td>
-                        <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-primary">
+                        <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-primary">
                             <i class="fa-solid fa-eye"></i>
                         </a>
-                        <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-sm btn-success">
+                        <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-success">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
                         <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline-block form-deleter" data-element-name="{{ $project->title }}">
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class="btn btn-sm btn-danger">
+                            <button type="submit" class="btn btn-danger">
                                 <i class="fa-regular fa-trash-can"></i>
                             </button>
                         </form>

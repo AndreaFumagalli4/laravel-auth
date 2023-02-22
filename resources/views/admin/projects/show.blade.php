@@ -17,7 +17,7 @@
                     <img src="{{ $project->thumb }}" alt="{{ $project->title }}" class="img-fluid mt-3">
                 </div>
                 <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-sm btn-success">
-                    Edit
+                    <i class="fa-regular fa-pen-to-square"></i>
                 </a>
                 <a href="{{ $project->link }}" class="btn btn-sm btn-info">
                     Go to the project repository
@@ -27,7 +27,7 @@
                     @method('DELETE')
 
                     <button type="submit" class="btn btn-sm btn-danger">
-                        Delete
+                        <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </form>
             </div>
