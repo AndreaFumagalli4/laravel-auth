@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+
+    @include('admin.partials.popup')
+
     <div class="container">
         <div class="row">
             <div class="col-12 mt-3">
@@ -11,14 +14,12 @@
                                 Projects:
                             </h2>
                         </div>
-                        <div>
-                            @if (count($projects))
-                            <form class="d-inline delete double-confirm" action="{{route('admin.restore-all')}}" method="POST" >
-                                @csrf
-                                <button type="submit" class="btn btn-primary" title="restore all"><i class="fa-solid fa-recycle"></i>&nbsp;Restore all</button>
-                            </form>            
-                            @endif   
-                        </div>
+                        @if (count($projects))
+                        <form class="d-inline delete double-confirm" action="{{route('admin.projects.restore-all')}}" method="POST" >
+                            @csrf
+                            <button type="submit" class="btn btn-primary" title="restore all"><i class="fa-solid fa-recycle"></i>&nbsp;Restore all</button>
+                        </form>            
+                        @endif   
                     </div>
                 </div>
             </div>

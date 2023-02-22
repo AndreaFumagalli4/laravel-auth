@@ -21,13 +21,13 @@ deleteFormElements.forEach((formElement)=> {
         var doubleconfirm = event.target.classList.contains('double-confirm');
         Swal.fire({
             title: 'Are you sure to delete this project?',
-            text: "Please confirm your request !",
+            text: "Please confirm your request!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             cancelButtonText: 'Cancel',
-            confirmButtonText: 'Yes, confirm !'
+            confirmButtonText: 'Yes, confirm!'
             }).then((result) => {
             if (result.value) {
 
