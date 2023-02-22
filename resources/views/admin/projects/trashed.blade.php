@@ -20,10 +20,10 @@
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
                     <td>
-                        <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-success">
+                        <a href="{{ route('admin.projects.restore', $project->id) }}" class="btn btn-sm btn-success">
                             Restore
                         </a>
-                        <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline-block form-deleter" data-element-name="{{ $project->title }}">
+                        <form action="{{ route('admin.projects.force-delete', $project->id) }}" method="POST" class="d-inline-block form-deleter" data-element-name="{{ $project->title }}">
                             @csrf
                             @method('DELETE')
 

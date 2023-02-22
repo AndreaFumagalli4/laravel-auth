@@ -126,9 +126,21 @@ class ProjectController extends Controller
      * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function resotre($id)
+    public function restore($id)
     {
         Project::where('id', $id)->withTrashed()->restore();
         return redirect()->route('admin.projects.index')->with('message', "Restored successfully")->with('alert-type', 'success');
+    }
+
+    /**
+     * Force delete project data
+     *
+     * @param Project $project
+     * @return \Illuminate\Http\Response
+     */
+    public function forceDelete($id)
+    {
+        Project::where('id', $id)->withTrashed()->forceDelete();
+        return redirect()->route('admin.projects.index')->with('message', "Delete definetely")->with('alert-type', 'success');
     }
 }
