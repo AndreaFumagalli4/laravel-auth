@@ -11,7 +11,12 @@
                     Language used: {{ $project->used_language }}
                 </p>
                 <div class="my-4">
-                    <img src="{{ asset('storage/' . $project->thumb) }}" alt="{{ $project->title }}" class="img-fluid mt-3">
+                    @if (str_starts_with($project->thumb, 'http'))
+                        <img src="{{ $project->thumb }}"
+                    @else 
+                        <img src="{{ asset('storage/' . $project->thumb) }}"
+                    @endif
+                        alt="{{ $project->title }} image" class="img-fluid mt-3">
                 </div>
                 <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-sm btn-success">
                     <i class="fa-regular fa-pen-to-square"></i>

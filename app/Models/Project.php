@@ -12,4 +12,8 @@ class Project extends Model
     use SoftDeletes;
     
     protected $fillable = array('title', 'thumb', 'used_language', 'link');
+
+    public function isImageAUrl() {
+        return filter_var($this->thumb, FILTER_VALIDATE_URL);
+    }
 }

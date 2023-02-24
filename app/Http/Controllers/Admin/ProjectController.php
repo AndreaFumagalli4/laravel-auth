@@ -82,21 +82,27 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Project $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
         $data = $request->validate([
-            'title' => ['required', 'min:2', 'max:80', Rule::unique('projects')->ignore($id)],
+            'title' => ['required', 'min:2', 'max:80', Rule::unique('projects')->ignore($project->id)],
             'thumb' => 'required|image',
             'used_language' => 'required|max:255',
             'link' => 'required|active_url'
         ]);
 
-        $project = Project::findOrFail($id);
-        $project->update($data);
+        if ($request->hasFile('thumb')){
 
+            if(!$project->isImageAUrl()){
+                Storage::delete($project->thumb);
+            }
+            $data['thumb'] = Storage::put('imgs/', $data['thumb']);
+        }
+
+        $project->update($data);
         return redirect()->route('admin.projects.show', $project->id);
     }
 
@@ -152,8 +158,12 @@ class ProjectController extends Controller
      * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function forceDelete($id)
+    public function forceDelete(Project $project, $id)
     {
+        if(!$project->isImageAUrl()) {
+            Storage::delete($project->thumb);
+        }
+
         Project::where('id', $id)->withTrashed()->forceDelete();
         return redirect()->route('admin.projects.index')->with('message', "Delete definetely")->with('alert-type', 'alert-danger');
     }
