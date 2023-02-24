@@ -18,14 +18,12 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 50; $i++) { 
+        for ($i=0; $i < 20; $i++) { 
             $newProject = new Project();
             $newProject->title = $faker->unique()->sentence(5);
-            $newProject->slug = Str::slug($newProject->title);
             $newProject->thumb = 'imgs/fake-duck.jpg';
             $newProject->used_language = $faker->word();
             $newProject->link = $faker->url();
-            $newProject->project_date = $faker->dateTimeThisYear();
             $newProject->save();
         }
     }
