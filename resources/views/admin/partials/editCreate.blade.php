@@ -32,7 +32,7 @@
                         <label class="form-label" for="thumb">
                             Thumb
                         </label>
-                        <textarea class="form-control @error('thumb') is-invalid @enderror" name="thumb">{{ old('thumb') ?? $project->thumb }}</textarea>
+                        <input type="file" class="form-control @error('thumb') is-invalid @enderror" name="thumb" value="{{ old('thumb') ?? $project->thumb }}">
                         @error('thumb')
                         <div class="invalid-feedback">
                             {{$message}}

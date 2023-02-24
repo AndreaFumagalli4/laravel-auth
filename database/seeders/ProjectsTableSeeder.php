@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectsTableSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject = new Project();
             $newProject->title = $faker->unique()->sentence(5);
             $newProject->slug = Str::slug($newProject->title);
-            $newProject->thumb = $faker->imageUrl(360, 360, 'computers', true);
+            $newProject->thumb = 'imgs/fake-duck.jpg';
             $newProject->used_language = $faker->word();
             $newProject->link = $faker->url();
             $newProject->project_date = $faker->dateTimeThisYear();
