@@ -3,9 +3,6 @@
 @section('content')
     <div class="container">
         <div class="card text-center mt-3">
-            <div class="card-header">
-                {{ $project->slug }}
-            </div>
             <div class="card-body">
                 <h2 class="card-title fw-bold">
                     {{ $project->title }}
@@ -30,9 +27,6 @@
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </form>
-            </div>
-            <div class="card-footer">
-                {{$project->project_date}}
             </div>
         </div>
     </div>

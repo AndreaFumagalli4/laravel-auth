@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -41,10 +42,11 @@ class ProjectController extends Controller
     {
         $data = $request->validate([
                 'title' => 'required|min:2|max:80|unique:projects',
-                'thumb' => 'required|active_url',
+                'thumb' => 'required|image',
                 'used_language' => 'required|max:255',
                 'link' => 'required|active_url'
         ]);
+        $data['thumb'] = Storage::put('imgs/', $data['thumb']);
 
         $newProject = new Project();
         $newProject->fill($data);
@@ -87,7 +89,7 @@ class ProjectController extends Controller
     {
         $data = $request->validate([
             'title' => ['required', 'min:2', 'max:80', Rule::unique('projects')->ignore($id)],
-            'thumb' => 'required|active_url',
+            'thumb' => 'required|image',
             'used_language' => 'required|max:255',
             'link' => 'required|active_url'
         ]);
