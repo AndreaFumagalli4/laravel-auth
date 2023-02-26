@@ -42,7 +42,7 @@ class ProjectController extends Controller
     {
         $data = $request->validate([
                 'title' => 'required|min:2|max:80|unique:projects',
-                'thumb' => 'required|image',
+                'thumb' => 'required|image|max:300',
                 'used_language' => 'required|max:255',
                 'link' => 'required|active_url'
         ]);
@@ -89,7 +89,7 @@ class ProjectController extends Controller
     {
         $data = $request->validate([
             'title' => ['required', 'min:2', 'max:80', Rule::unique('projects')->ignore($project->id)],
-            'thumb' => 'required|image',
+            'thumb' => 'required|image|max:300',
             'used_language' => 'required|max:255',
             'link' => 'required|active_url'
         ]);

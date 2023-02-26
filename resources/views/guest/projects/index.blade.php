@@ -12,7 +12,7 @@
                     Language used: {{ $project->used_language }}
                 </p>
                 <div class="my-4">
-                    <img src="{{ asset('storage/' . $project->thumb) }}" alt="{{ $project->title }}" class="img-fluid">
+                    <img src="{{ asset('storage/' . $project->thumb) }}" alt="Porject image" class="img-fluid">
                 </div>
                 <a href="{{ $project->link }}" class="btn btn-sm btn-info">
                     Go to the project repository

@@ -16,7 +16,7 @@
                     @else 
                         <img src="{{ asset('storage/' . $project->thumb) }}"
                     @endif
-                        alt="{{ $project->title }} image" class="img-fluid mt-3">
+                        alt="Project image" class="img-fluid mt-3">
                 </div>
                 <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-sm btn-success">
                     <i class="fa-regular fa-pen-to-square"></i>
