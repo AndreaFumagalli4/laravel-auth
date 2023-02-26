@@ -155,14 +155,14 @@ class ProjectController extends Controller
     /**
      * Force delete project data
      *
-     * @param Project $project
+    //  * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function forceDelete(Project $project, $id)
+    public function forceDelete($id)
     {
-        if(!$project->isImageAUrl()) {
-            Storage::delete($project->thumb);
-        }
+        // if(!$project->isImageAUrl()) {
+        //     Storage::delete($project->thumb);
+        // }
 
         Project::where('id', $id)->withTrashed()->forceDelete();
         return redirect()->route('admin.projects.index')->with('message', "Delete definetely")->with('alert-type', 'alert-danger');
